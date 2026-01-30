@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>List of Employees</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <div class="p-4">
+        <a href="/emp/add/" class="btu btu-primary">Add Emmployess</a>
+    <table class="table table-striped border border-3">
+      <thead>
+        <tr>
+          <th scope="col">Name</th>
+          <th scope="col">Email</th>
+          <th scope="col">Departent</th>
+          <th scope="col">Salary</th>
+          <th scope="col">Joining Date</th>
+          <th scope="col">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for e in EmpList%}
+        <tr>
+          <th scope="row">{{ e.name}}</th>
+          <th scope="row">{{ e.email}}</th>
+          <th scope="row">{{ e.department}}</th>
+          <th scope="row">{{ e.salary}}</th>
+          <th scope="row">{{ e.joining_date}}</th>
+          <th>
+            <a href="/emp/edit/{{e.id}}">Edit</a>
+            <a href="/emp/delete/{{e.id}}">Delete</a>
+          </th>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    </div>
+  </body>
+</html>
